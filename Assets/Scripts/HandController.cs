@@ -38,7 +38,7 @@ public class HandController : MonoBehaviour
         yield return new WaitForSeconds(currentHand.attackDelayA);
         isSwing = true;
 
-        // 공격 활성화 시점
+        StartCoroutine(HitCoroutine());
 
         yield return new WaitForSeconds(currentHand.attackDelayB);
         isSwing = false;
@@ -66,6 +66,6 @@ public class HandController : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out hitInfo, currentHand.range)){
             return true;
         }
-        return true;
+        return false;
     }
 }
